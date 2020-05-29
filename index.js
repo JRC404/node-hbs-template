@@ -17,7 +17,6 @@ app.set('view engine', '.hbs');
 //view that I'm rendering plus the engine ext name
 
 app.get('/', async (req, res) => {
-
     res.render('index');
 })
 
