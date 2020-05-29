@@ -123,6 +123,11 @@ const API = require('./lib/HarryPotter.js');
 ```hbs
 <p>{{data}}</p>
 ```
-11. 
+11. We currently don't have a .env, so let's set that up:
+
+```javascript
+// npm i dotenv
+require('dotenv').config(); // create a .env file and .gitignore
+```
 
 12. Run nodemon and load our localhost:3000
