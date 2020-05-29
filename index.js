@@ -6,6 +6,8 @@ const app = express(); // initialising express to be used as a function
 
 require('dotenv').config(); // create a .env file and .gitignore
 
+const APIdata = require('./lib/getAPI')
+
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.engine('.hbs', hbs({
@@ -21,7 +23,9 @@ app.get('/', async (req, res) => {
 })
 
 app.get('/harry', async (req, res) => {
-    res.render('harry');
+    let data = await APIdata.getSortingHat();
+    console.log(data);
+    res.render('harry', { data });
 })
 
 app.listen(process.env.PORT || 3005, () => {
