@@ -28,6 +28,6 @@ app.get('/harry', async (req, res) => {
     res.render('harry', { data });
 })
 
-app.listen( 3005, () => {
+app.listen(process.env.PORT || 3005, () => {
     console.log('Server is running. Chase it.');
 })
