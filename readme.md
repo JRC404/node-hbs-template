@@ -1,6 +1,11 @@
 # Setting up HBS with Express
 
-1. Install express and express-handlebars inside of your application then add them to your index.js along with path
+1. Initialise the project with npm init -y
+```
+npm init -y
+```
+
+2. Install express and express-handlebars inside of your application then add them to your index.js along with path
 
 ```
 npm i express express-handlebars
@@ -13,7 +18,7 @@ const path = require('path');
 const app = express(); //initialise express as a function
 ```
 
-2. Basic folder structure for our application
+3. Basic folder structure for our application
 
 ```
 project
@@ -32,7 +37,7 @@ project
 │   index.hbs
 ```
 
-3. Create your app.get and app.listen for your basic express web-server
+4. Create your app.get and app.listen for your basic express web-server
 
 ```javascript
 app.get('/', async (req, res) => {
@@ -44,7 +49,7 @@ app.listen(3000, () => {
 });
 ```
 
-4. Above the app.get but below the const imports, put the following to setup the path for our style.css and other client-side code and the creation of the HBS template: 
+5. Above the app.get but below the const imports, put the following to setup the path for our style.css and other client-side code and the creation of the HBS template: 
 
 ```javascript
 app.use(express.static(path.join(__dirname, 'public')));
@@ -57,7 +62,7 @@ app.engine('.hbs', hbs({
 app.set('view engine', '.hbs');
 ```
 
-5. Setup your layout.hbs like a normal HTML file with a CSS link with a twist
+6. Setup your layout.hbs like a normal HTML file with a CSS link with a twist
 
 ```hbs
 <!DOCTYPE html>
@@ -79,7 +84,7 @@ app.set('view engine', '.hbs');
 </html>
 ```
 
-6. Head to the HarryPotter.js inside of the lib folder now and insert the following for a Harry Potter API function:
+7. Head to the HarryPotter.js inside of the lib folder now and insert the following for a Harry Potter API function:
 
 ```javascript
 const fetch = require('node-fetch');
@@ -97,7 +102,7 @@ module.exports = {
 }
 ```
 
-7. Head back to your index.js in the root folder and import your file you just exported near the top of your file:
+8. Head back to your index.js in the root folder and import your file you just exported near the top of your file:
 
 ```javascript
 // below your external module imports
@@ -105,7 +110,7 @@ const API = require('./lib/HarryPotter.js');
 // above your app.use
 ```
 
-8. Next, let's go back to our app.get('/') and modify it like this:
+9. Next, let's go back to our app.get('/') and modify it like this:
 
 ```javascript
     let data = await HarryPotter.getSortingHat();
@@ -113,10 +118,11 @@ const API = require('./lib/HarryPotter.js');
     res.render('index', { data });
 ```
 
-9. We have put data inside of an object in the res.render, so, in our index.hbs, let's put this: 
+10. We have put data inside of an object in the res.render, so, in our index.hbs, let's put this: 
 
 ```hbs
 <p>{{data}}</p>
 ```
+11. 
 
-10. Run nodemon and load our localhost:3000
+12. Run nodemon and load our localhost:3000
