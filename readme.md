@@ -131,3 +131,15 @@ require('dotenv').config(); // create a .env file and .gitignore
 ```
 
 12. Run nodemon and load our localhost:3000
+
+***
+
+## things to add
+
+* Routes
+* controllers
+* model folder
+
+Why? Each project should be set up in the best way for the progression of the project. This project currently works well for what it is, it is a node & handlebars template, but we will be adding a controllers and models section to this template. Even if it is empty, we want the correct set up to be there for the project. 
+
+Coming soon. 
